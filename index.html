@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo Melanie</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 2s ease-out;
+        }
+
+        .flower-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            animation: riseUp 3s ease-out 1s both;
+        }
+
+        .flower {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .petal {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: 50% 90%;
+            animation: petalOpen 2s ease-out 2s both;
+        }
+
+        .petal:nth-child(1) {
+            top: 20px;
+            left: 70px;
+            transform: rotate(0deg) scale(0);
+        }
+
+        .petal:nth-child(2) {
+            top: 40px;
+            left: 110px;
+            transform: rotate(45deg) scale(0);
+        }
+
+        .petal:nth-child(3) {
+            top: 80px;
+            left: 120px;
+            transform: rotate(90deg) scale(0);
+        }
+
+        .petal:nth-child(4) {
+            top: 120px;
+            left: 110px;
+            transform: rotate(135deg) scale(0);
+        }
+
+        .petal:nth-child(5) {
+            top: 140px;
+            left: 70px;
+            transform: rotate(180deg) scale(0);
+        }
+
+        .petal:nth-child(6) {
+            top: 120px;
+            left: 30px;
+            transform: rotate(225deg) scale(0);
+        }
+
+        .petal:nth-child(7) {
+            top: 80px;
+            left: 20px;
+            transform: rotate(270deg) scale(0);
+        }
+
+        .petal:nth-child(8) {
+            top: 40px;
+            left: 30px;
+            transform: rotate(315deg) scale(0);
+        }
+
+        .center {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffd700, #ffed4e);
+            border-radius: 50%;
+            animation: centerGlow 2s ease-out 3s both;
+        }
+
+        .stem {
+            position: absolute;
+            bottom: -50px;
+            left: 95px;
+            width: 10px;
+            height: 100px;
+            background: linear-gradient(to bottom, #4ade80, #22c55e);
+            border-radius: 5px;
+            animation: stemGrow 1.5s ease-out 1.5s both;
+            transform-origin: 50% 0%;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+
+        .sparkle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 40%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .sparkle:nth-child(5) {
+            top: 60%;
+            left: 50%;
+            animation-delay: 0.3s;
+        }
+
+        .sparkle:nth-child(6) {
+            top: 10%;
+            left: 60%;
+            animation-delay: 0.8s;
+        }
+
+        .sparkle:nth-child(7) {
+            bottom: 60%;
+            right: 40%;
+            animation-delay: 1.2s;
+        }
+
+        .sparkle:nth-child(8) {
+            top: 80%;
+            left: 30%;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes riseUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes petalOpen {
+            0% {
+                transform: rotate(var(--rotation, 0deg)) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: rotate(var(--rotation, 0deg)) scale(1.2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: rotate(var(--rotation, 0deg)) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .petal:nth-child(1) { --rotation: 0deg; animation-delay: 2s; }
+        .petal:nth-child(2) { --rotation: 45deg; animation-delay: 2.2s; }
+        .petal:nth-child(3) { --rotation: 90deg; animation-delay: 2.4s; }
+        .petal:nth-child(4) { --rotation: 135deg; animation-delay: 2.6s; }
+        .petal:nth-child(5) { --rotation: 180deg; animation-delay: 2.8s; }
+        .petal:nth-child(6) { --rotation: 225deg; animation-delay: 3s; }
+        .petal:nth-child(7) { --rotation: 270deg; animation-delay: 3.2s; }
+        .petal:nth-child(8) { --rotation: 315deg; animation-delay: 3.4s; }
+
+        @keyframes centerGlow {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        @keyframes stemGrow {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 0 10px #fff;
+            }
+        }
+
+        .message {
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            color: #8b5a83;
+            animation: fadeIn 3s ease-out 4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .flower-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+
+    <div class="container">
+        <h1 class="title"> Ey tu, mira abajo  ↓ 
+</h1>
+        
+        <div class="flower-container">
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+                <div class="stem"></div>
+            </div>
+        </div>
+        
+        <p class="message"> pendejo 🖕 </p>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'992ad0f4b25dc915',t:'MTc2MTE1NTIwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
